@@ -2,7 +2,7 @@ import React from 'react'
 
 function OurPolicy() {
   return (
-    <div>OurPolicy</div>
+    <div></div>
   )
 }
 
