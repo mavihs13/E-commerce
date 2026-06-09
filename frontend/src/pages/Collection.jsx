@@ -98,6 +98,7 @@ function Collection() {
         </p>
 
         {/* Category Filter */}
+
         <div className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? '' : 'hidden'} sm:block`}>
           <p className='font-medium mb-3 text-sm'>CATEGORY</p>
 
@@ -135,6 +136,7 @@ function Collection() {
         </div>
 
         {/* Subcategory Filter */}
+
         <div className={`border border-gray-300 pl-5 py-3 my-5 ${showFilter ? '' : 'hidden'} sm:block`}>
           <p className='font-medium mb-3 text-sm'>TYPE</p>
 
@@ -174,6 +176,7 @@ function Collection() {
       </div>
 
       {/* Products List Section */}
+      
       <div className='flex-1'>
 
         <div className='flex justify-between text-base sm:text-2xl mb-4'>

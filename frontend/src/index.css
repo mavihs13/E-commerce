@@ -14,9 +14,16 @@ a.active hr{
   font-style: normal;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
 @media (max-width:640px){
     a.active{
         background-color: black;
         color:white;
     }
 }
+
