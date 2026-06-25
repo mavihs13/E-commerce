@@ -17,7 +17,7 @@ function BestSeller() {
                 (item) => (item.bestseller)
             );
 
-            setBestSeller(bestProducts.slice(0, 10));
+            setBestSeller(bestProducts.slice(0, 15));
         }
 
     }, [products]);
@@ -31,8 +31,7 @@ function BestSeller() {
                 <Title text1={'BEST'} text2={'SELLER'} />
 
                 <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptas, voluptate.
+                    Shop our most-loved fashion pieces, chosen for their style, quality, and comfort.
                 </p>
 
             </div>

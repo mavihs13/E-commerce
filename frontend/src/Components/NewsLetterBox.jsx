@@ -5,8 +5,8 @@ function NewsLetterBox() {
         event.preventDefault();
     }
   return (
-    <div className='text-center'>
-        <p className='text-2xl font-medium text-gray-800'>Subscribe now & get 20% off on your first order!</p>
+    <div className='text-center mt-10'>
+        <p className='text-2xl font-medium text-gray-800 '>Subscribe now & get 20% off on your first order!</p>
         <p className='text-gray-400 mt-3'>Enter your email address to subscribe to our newsletter.</p>
 
         <form onSubmit={onSubmitHandler} className='w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 border pl-3'>

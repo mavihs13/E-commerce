@@ -8,7 +8,7 @@ function Footer() {
           <div>
             <img src={assets.logo} className='mb-5 w-32'/>
             <p className='w-full md:w-2/3 text-gray-600'>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid ducimus eveniet ex repellendus facilis laboriosam quasi numquam, maxime quas iste.
+                Cool Cloths brings you stylish, high-quality fashion for every occasion. We are dedicated to offering trendy designs, comfort, and value while providing a seamless shopping experience for all our customers.
             </p>
           </div>
 
@@ -28,7 +28,7 @@ function Footer() {
             </p>
             <ul className='flex flex-col gap-1 text-gray-600'>
                 <li>+1 234 567 8900</li>
-                <li>contact@foreeveryou.com</li>
+                <li>contact@zcollections.com</li>
             </ul>
           </div>
  
@@ -37,7 +37,7 @@ function Footer() {
 
         <div>
             <hr/>
-            <p className='py-5 text-center'> Copyright © 2024 Forever You. All rights reserved.</p>
+            <p className='py-5 text-center'> Copyright © 2024 Z-Collections . All rights reserved.</p>
 
         </div>
 
