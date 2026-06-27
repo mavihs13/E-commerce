@@ -26,11 +26,11 @@ const registerUser = async (req, res) => {
     if (password.length < 6) {
       return res.json({
         success: false,
-        message: "please enter string password",
+        message: "please enter strong password",
       });
     }
 
-    //Hasing user passwords
+    //Hashing user passwords
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
 
