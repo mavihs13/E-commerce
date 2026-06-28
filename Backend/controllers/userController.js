@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const createToken = (id)=>{
-    return jwt.sign({id})
+    return jwt.sign({id},process.env.JWT_SECREAT)
 }
 
 //  routes forLogin User
@@ -14,13 +14,13 @@ const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
     //check user is already register on not
-    const exist = await userModel.findOne(email);
+    const exist = await userModel.findOne({email});
     if (exist) {
       return res.json({ success: false, message: "User  already registers" });
     }
 
     // validating the email and strong password
-    if (!validoter.isEmail(email)) {
+    if (!validator.isEmail(email)) {
       return res.json({ success: false, message: "please enter valid email" });
     }
     if (password.length < 6) {
@@ -42,7 +42,13 @@ const registerUser = async (req, res) => {
     })
     const user = await newUser.save();
 
-  } catch (e) {}
+    const token = createToken(user._id);
+    res.json({success:true , token})
+
+  } catch (e) {
+    console.log(e);
+    res.json({success:false,message:e.message});
+  }
 };
 
 const adminLogin = async (req, res) => {};
