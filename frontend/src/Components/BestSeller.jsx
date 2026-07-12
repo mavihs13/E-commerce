@@ -17,7 +17,7 @@ function BestSeller() {
                 (item) => (item.bestSeller)
             );
 
-            setBestSeller(bestProducts.slice(0, 5));
+            setBestSeller(bestProducts.slice(0, 10));
         }
 
     }, [products]);

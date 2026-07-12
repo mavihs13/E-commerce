@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { backendUrl } from '../App.jsx'; // Import the backendUrl from App.jsx
+
 
 
 const ShopContext = React.createContext()
@@ -11,15 +11,16 @@ const ShopContextProvider = (props)=>{
     const currency = '$';
     const delivery_fee = 10;
 
-    
+    const backendUrl = import.meta.env.VITE_BACKEND_URL
 
-    console.log("Backend URL:", backendUrl); // Log the backend URL to verify it's being read correctly
 
     const [search , setSearch] = useState('')
     const [showSearch, setShowSearch] = useState(false)
     const [cartItems, setCartItems] = useState({})
 
     const [products,setProducts] = useState([])
+
+    const [token,setToken] = useState('')
 
 
     const navigate = useNavigate();
@@ -85,15 +86,13 @@ const ShopContextProvider = (props)=>{
 
     const getProductsData = async () => {
     try {
-        console.log("Fetching products...");
+       
 
         const response = await axios.get(backendUrl + "/api/product/list");
 
-        console.log("Full Response:", response);
-        console.log("Response Data:", response.data);
+        
 
         if (response.data.success) {
-            console.log("Products:", response.data.products);
             setProducts(response.data.products);
         } else {
             toast.error(response.data.message);
@@ -105,6 +104,13 @@ const ShopContextProvider = (props)=>{
 };
     useEffect(()=>{
         getProductsData();
+    },[])
+
+    useEffect(()=>{
+        if(!token && localStorage.getItem('token')){
+            setToken(localStorage.getItem('token'))
+
+        }
     },[])
 
 
@@ -121,7 +127,8 @@ const ShopContextProvider = (props)=>{
         getCartCount,updateQuantity,
         getCartAmount,
         navigate,
-        backendUrl
+        backendUrl,
+        setToken,token
     }
     return (
         <ShopContext.Provider value={value}>
