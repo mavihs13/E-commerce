@@ -14,10 +14,10 @@ function BestSeller() {
         if (products?.length > 0) {
 
             const bestProducts = products.filter(
-                (item) => (item.bestseller)
+                (item) => (item.bestSeller)
             );
 
-            setBestSeller(bestProducts.slice(0, 15));
+            setBestSeller(bestProducts.slice(0, 5));
         }
 
     }, [products]);
