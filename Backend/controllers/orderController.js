@@ -1,5 +1,5 @@
 import orderModel from "../models/orderModel.js";
-import userModel from "../models/userModel";
+import userModel from "../models/userModel.js";
 
 // Placing Order using COD method
 
@@ -10,6 +10,7 @@ const placeOrder = async(req,res)=>{
         const orderData = {
             userId,
             items,
+            amount,
             address,
             paymentMethod:"COD",
             payment: false,
@@ -46,6 +47,15 @@ const placeOrderRazorpay = async(req,res)=>{
 //All orders data for admin panel
 
 const allOrders = async(req,res)=>{
+    try{
+
+        const orders = await orderModel.find({})
+        res.json({success:true,orders})
+    }catch(erroe){
+
+        res.json({success:false,message:error.message})
+
+    }
 
 }
 
@@ -53,6 +63,13 @@ const allOrders = async(req,res)=>{
 
 const userOrders = async(req,res)=>{
 
+    try {
+        const {userId} = req.body;
+        const orders = await orderModel.find({userId}).sort({date:-1})
+        res.json({success:true,orders})
+    } catch (error) {
+        res.json({success:false,message:error.message})
+    }
 }
 
 // update order status from admin panel
